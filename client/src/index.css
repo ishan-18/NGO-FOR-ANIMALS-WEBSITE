@@ -1,0 +1,35 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a{
+  cursor: pointer;
+}
+
+@import url("./components/Navbar/Navbar.css");
+@import url("./components/Hero/Hero.css");
+@import url("./components/Sidebar/Sidebar.css");
+@import url("./components/HomeAdopt/HomeAdopt.css");
+@import url("./components/Services/Services.css");
+@import url("./components/HomeProducts/HomeProducts.css");
+@import url("./components/Process/Process.css");
+@import url("./components/Email/Email.css");
+@import url("./components/Footer/Footer.css");
+@import url("./components/Adopt/Hero/AdoptHero.css");
+@import url("./components/Adopt/Hero/AdoptNavbar/AdoptNavbar.css");

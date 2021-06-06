@@ -1,0 +1,47 @@
+nav{
+    background: transparent;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+}
+
+.nav-links{
+    color: #fff;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 700;
+}
+
+@media all and (max-width: 400px){
+    .nav-links{
+        position: absolute;
+        top: 10px;
+        left: 25px;
+    }
+}
+
+/* DIV */
+.nav-icon{ 
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: #fff;
+}
+
+.nav-para{
+    transform: translate(-175%, 100%);
+    font-weight: 900;
+    font-family: "Kanit", sans-serif;
+}
+
+.icon{
+    font-size: 2rem;
+    transform: translate(-50%, -15%);
+}

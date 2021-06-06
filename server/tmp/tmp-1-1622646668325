@@ -1,0 +1,297 @@
+exp7i:
+
+xml:
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/t1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10sp"
+        android:text="Login"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp" />
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="180sp"
+        android:layout_height="180sp"
+        android:layout_below="@+id/t1"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="-128sp"
+        android:src="@drawable/user"
+        android:visibility="visible"></ImageView>
+
+    <TextView
+        android:id="@+id/trt1"
+        android:layout_width="188sp"
+        android:layout_height="50sp"
+        android:layout_below="@+id/img1"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="160sp"
+        android:text="Username :"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et1"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_marginLeft="-3dp"
+        android:layout_marginTop="280sp"
+        android:layout_marginRight="20sp"
+        android:layout_toRightOf="@+id/trt1"
+        android:background="#FFFFFF"
+        android:textColor="#000000" />
+
+    <TextView
+        android:id="@+id/trt2"
+        android:layout_width="188sp"
+        android:layout_height="50sp"
+        android:layout_below="@+id/trt1"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="21dp"
+        android:layout_marginRight="20sp"
+        android:text="Password :"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/et2"
+        android:layout_width="match_parent"
+        android:layout_height="40sp"
+        android:layout_below="@+id/et1"
+        android:layout_marginLeft="210sp"
+        android:layout_marginTop="31dp"
+        android:layout_marginRight="20sp"
+        android:background="#FFFFFF"
+        android:inputType="textPassword"
+        android:textColor="#000000" />
+
+    <Button
+        android:id="@+id/b1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/et2"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20sp"
+        android:background="#000000"
+        android:backgroundTint="#00C8F4"
+        android:text="Login"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp" />
+
+</RelativeLayout>
+
+java:
+package com.example.exp7;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
+public class MainActivity extends AppCompatActivity {
+    Button submit;
+    EditText t1,t2;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        t1=(EditText) findViewById(R.id.et1);
+        t2=(EditText) findViewById(R.id.et2);
+        submit=(Button) findViewById(R.id.b1);
+        submit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                if(t1.getText().toString().isEmpty())
+                {
+                    Toast.makeText(getApplicationContext(),"Please Enter Username !",Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    if (t2.getText().toString().isEmpty())
+                    {
+                        Toast.makeText(getApplicationContext(),"Please Enter Password !",Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        if(t1.getText().toString().equals("Ishan"))
+                        {
+                            if(t2.getText().toString().equals("gawali"))
+                            {
+                                Toast.makeText(getApplicationContext(),"Login Successful !",Toast.LENGTH_SHORT).show();
+                                clear();
+                            }
+                            else
+                            {
+                                Toast.makeText(getApplicationContext(),"Please Enter Valid Password !",Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                        else
+                        {
+                            Toast.makeText(getApplicationContext(),"Please Enter Valid Username !",Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                }
+            }
+        });
+    }
+    public void clear(){
+        t1.setText("");
+        t2.setText("");
+    }
+}
+
+
+exp7ii:
+
+xml:
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="40dp">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/name"
+            android:textSize="23sp"
+            android:layout_alignBaseline="@id/NameEditText"/>
+        <EditText
+            android:id="@+id/NameEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:width="200dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:textSize="23sp"
+            android:layout_alignBaseline="@id/EmailEditText"/>
+        <EditText
+            android:id="@+id/EmailEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_below="@id/NameEditText"
+            android:inputType="textEmailAddress"
+            android:width="200dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/number"
+            android:textSize="23sp"
+            android:layout_alignBaseline="@id/NumberEditText"/>
+        <EditText
+            android:id="@+id/NumberEditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:inputType="number"
+            android:layout_below="@id/EmailEditText"
+            android:width="200dp"
+            />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/submit"
+        android:layout_centerInParent="true"
+        android:onClick="submitInfo"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn"
+        android:layout_marginTop="50dp"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/name"
+        android:layout_marginTop="10dp"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/number"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/email"
+        android:layout_marginTop="10dp"
+        android:textSize="22sp" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Submit Your Info"
+        android:textAlignment="center"
+        android:textSize="40sp" />
+
+</RelativeLayout>
+
+java:
+package com.example.exp7ii;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+    }
+
+    public void submitInfo(View v){
+
+        String name = "Name = " + ((EditText)findViewById(R.id.NameEditText)).getText();
+        String email = "Email = " + ((EditText)findViewById(R.id.EmailEditText)).getText();
+        String number = "Number = " + ((EditText)findViewById(R.id.NumberEditText)).getText();
+
+        ((TextView)findViewById(R.id.name)).setText(name);
+        ((TextView)findViewById(R.id.email)).setText(email);
+        ((TextView)findViewById(R.id.number)).setText(number);
+
+    }
+
+}
